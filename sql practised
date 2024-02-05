@@ -1,0 +1,93 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "Script",
+    "content": "-- show DATABASES;\nuse mydb;\nshow tables;\n-- SELECT * from students;\n\n-- SELECT DISTINCT firstname from students; \n-- distinct is used to  return only diffrent values \n\n\n-- ---------------------------Order by --------------------------\n-- select * FROM students ORDER BY marks;\n-- order by keyword is used to sort the resultent in ascending order by default\n\n-- SELECT * from students order by Address;\n-- sort by alphabetical order\n\n-- SELECT * from students order by rollnum DESC;\n\n-- -------------------And , or, Not ----------------------------\n-- SELECT * from students where FirstName = 'harsh' AND city = 'itly';\n-- SELECT * from  students where city = 'new york' and rollnum < 5;\n\n-- SELECT * from teachers;\n\n-- SELECT * from teachers WHERE subject = 'history' or subject = 'english';\n\n-- SELECT  * from teachers  where not subject = 'history';\n\n-- UPDATE  teachers set subject = NULL where first_name = 'john';\n-- SELECT * from teachers;\n\n\n-- ------------------------Checking NUll or not Null--------------\n-- SELECT * FROM teachers where subject is NOT null;\n-- SELECT * from teachers where subject is null;\n\n-- for selecting first 5 from the top of the TABLE\n-- SELECT * from teachers LIMIT 5;\n\n-- -------------------------min max functions------------------------------------\n-- SELECT min(marks) from students;\n-- select max(marks) from students;\n\n-- -------------------------Count function-----------------------\n-- its returns returns the number of rows that matches a specified criterion.\n-- SELECT  count(*) from teachers;\n-- SELECT Count(firstname) from students where marks > (select AVG(marks) FROM students);\n\n-- ------------------------Sum, avg  function--------------------------\n-- SELECT sum(marks) from  students; \n-- SELECT avg(marks) from students; \n\n-- ------------------------LIKE,  wild card characters---------------\n-- //The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.\n-- //There are two wildcards often used in conjunction with the LIKE operator:\n-- //The percent sign % represents zero, one, or multiple characters\n-- //The underscore sign _ represents one, single character\n\n-- SELECT *  from students where FirstName like  'b%';\n-- //selecting all students whose name is started with b\n\n-- SELECT  * from students  where firstname like 'h%h';\n-- //selecting all students whose name is started with h and end with h \n\n-- select * from students where FirstName like '%RU%'\n-- //selecting all students whose firstname contains ru \n\n-- SELECT * FROM students where firstname like 't___%';\n-- //selecting all students whose firstname starts with t and after that it atleast have 3 characters\n\n-- select * from students where firstname like '_r%';\n-- //selecting all students whose firstname second character conatains r\n\n-- -----------------------IN BETWEEN operatos------------------------------\n\n-- SELECT * from students WHERE city in ('satna','itly')\n-- select * from teachers where subject not IN ('Science','physical','biology');\n\n-- SELECT * from students where marks BETWEEN 50 AND 80;\n\n-- SELECT * from students where marks  BETWEEN 50 and 100 and Address in ('ausis','canada');\n\n-- --------------------------SQL Aliases -- As keyword--------------------------\n\n-- select firstname as name from students;\n-- SELECT firstname name from students;\n\n-- -----------------------------------------------------------------\n-- use classicmodels;\n-- show tables;\n-- SELECT * from payments; \n-- SELECT * from orders;\n-- SELECT * from employees;\n-- SELECT * from offices;\n-- SELECT * from orderdetails;\n-- SELECT * from customers;\n-- SELECT * from productlines;\n-- SELECT * from products;\n-- -------------------------------------------joins-----------------------------------\n-- (INNER) JOIN: Returns records that have matching values in both tables\n-- LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table\n-- RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table\n-- FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table\n-- full join doesn't supports in mysql\n \n\n-- inner join --\n-- SELECT * from payments ORDER BY customerNumber;\n-- SELECT * from orders ORDER BY customerNumber;\n\n-- SELECT orders.customerNumber, orders.orderNumber, orders.requiredDate, orders.status  FROM\n-- orders INNER JOIN payments ON orders.customerNumber = payments.customerNumber ORDER BY customerNumber;\n\n-- select * from employees;\n\n-- select employees.employee_id,  employees.department_id,employees.employee_name,\n-- departments.department_name , departments.department_index from employees INNER join departments on \n-- employees.department_id = departments.department_id;\n\n-- Left join -- \n-- select employees.employee_id,  employees.department_id,employees.employee_name,\n-- departments.department_name , departments.department_index from employees left join departments on \n-- employees.department_id = departments.department_id;\n\n-- Right join -- \n-- select employees.employee_id,  employees.department_id,employees.employee_name,\n-- departments.department_name , departments.department_index from employees RIGHT join departments on \n-- employees.department_id = departments.department_id;\n\n\n-- full join --\n-- select employees.employee_id,  employees.department_id,employees.employee_name,\n-- departments.department_name , departments.department_index from employees left join departments on \n-- employees.department_id = departments.department_id \n-- UNION\n-- select employees.employee_id,  employees.department_id,employees.employee_name,\n-- departments.department_name , departments.department_index from employees RIGHT join departments on \n-- employees.department_id = departments.department_id;\n\n-- self Join -- \n-- SELECT e.employee_name as employee, d.employee_name as dept\n-- from employees e left JOIN employees d on e.department_id = d.employee_id\n\n\n-- Union -- \n-- select * from employees UNION SELECT * from departments;\n-- It returns only distinct values from both the employees and departments table\n\n\n-- Group BY --\n\n-- The GROUP BY statement groups rows that have the same \n-- values into summary rows,like \"find the number of customers in each country\".\n\n-- The GROUP BY statement is often used with aggregate functions \n-- (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.\n\n\n\n-- SELECT * from employees;\n\n-- SELECT count(employee_id), employee_name from\n-- employees GROUP by employee_name ORDER BY COUNT(employee_id) DESC;\n\n\nSELECT * from students;\n-- SELECT count(rollnum), firstname from students GROUP by \n-- firstname ORDER BY count(rollnum) desc; \n\n\n-- SELECT rollnum, sum(marks) as total from students\n-- GROUP BY rollnum;\n\n\n\n\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": null,
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 177,
+                "language": "mysql",
+                "currentHeight": 200,
+                "currentSet": 2,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 28
+                        },
+                        "contentStart": 19,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 28,
+                            "length": 13
+                        },
+                        "contentStart": 29,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 41,
+                            "length": 6562
+                        },
+                        "contentStart": 6580,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 6603,
+                            "length": 185
+                        },
+                        "contentStart": 6602,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 1,
+                "end": 177,
+                "language": "mysql",
+                "currentHeight": 200,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 15
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 15,
+                            "length": 1
+                        },
+                        "contentStart": 14,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
